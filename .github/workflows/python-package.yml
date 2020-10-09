@@ -22,3 +22,8 @@ jobs:
     - name: build with pyinstaller
       run: |
         pyinstaller reestr.py
+    - name: publish artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: sber_reestr.exe
+        path: dist
