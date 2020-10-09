@@ -7,7 +7,10 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: {{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -22,8 +25,12 @@ jobs:
     - name: build with pyinstaller
       run: |
         pyinstaller reestr.py
+        
+  publish:
+    runs-on: {{matrix.os}}
+    steps:
     - name: publish artifact
       uses: actions/upload-artifact@master
       with:
         name: sber_reestr
-        path: D:\a\sber_reestr\sber_reestr\build\reestr\reestr.exe
+        path: dist
