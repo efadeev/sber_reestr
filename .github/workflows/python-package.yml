@@ -25,5 +25,5 @@ jobs:
     - name: publish artifact
       uses: actions/upload-artifact@master
       with:
-        name: sber_reestr.exe
-        path: dist
+        name: reestr.exe
+        path: D:\a\sber_reestr\sber_reestr\build\reestr\
